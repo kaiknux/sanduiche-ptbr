@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Auxiliary from '../../../hoc/Auxiliary';
+import Aux from '../../../hoc/Aux';
 import Button from '../../UI/Button/Button';
 
 const orderSummary = ( props ) => {
@@ -9,7 +9,7 @@ const orderSummary = ( props ) => {
             
     });
 return (
-    <Auxiliary>
+    <Aux>
         <h3>Seu pedido:</h3>
         <p>Um delicioso hambúrger com os ingredientes:</p>
         <p>{ingredientSummary}</p>
@@ -17,7 +17,7 @@ return (
         <p>Seguir para o check-out?</p>
         <Button btnType="Danger" clicked={props.purchaseCancelled}>Cancelar</Button>
         <Button btnType="Success" clicked={props.purchaseContinued}>Continuar</Button>
-    </Auxiliary>
+    </Aux>
 
 )
 };
