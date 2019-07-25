@@ -4,7 +4,7 @@ import Logo from '../../UI/Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems'
 import classes from './SideDrawer.css'
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Aux from '../../../hoc/Aux';
+import Auxiliary from '../../../hoc/Auxiliary';
 
 const sideDrawer = (props) => {
     // esse objeto tem estrutura diferente pra poder colocar
@@ -16,7 +16,7 @@ const sideDrawer = (props) => {
 
 
     return (
-        <Aux>
+        <Auxiliary>
         <Backdrop show={props.open} clicked={props.closed}/>
         <div className={attachedClasses.join(' ')}>
             <div className={classes.Logo1a}>
@@ -28,7 +28,7 @@ const sideDrawer = (props) => {
             </nav>
 
         </div>
-        </Aux>
+        </Auxiliary>
 
     );
 }
@@ -44,7 +44,7 @@ export default sideDrawer;
 
 
 //     return (
-//         <Aux>
+//         <Auxiliary>
 //         <Backdrop show={props.open} clicked={props.closed}/>
 //         <div className={attachedClasses.join(' ')}>
 //             <div className={classes.Logo1a}>
@@ -56,7 +56,7 @@ export default sideDrawer;
 //             </nav>
 
 //         </div>
-//         </Aux>
+//         </Auxiliary>
 
 //     );
 // }
