@@ -11,15 +11,19 @@ return class extends Component {
         error: null,
     }
 
-    componentDidMount () {
-        axios.interceptors.request.use(req => {
+    componentWillMount () { // interceptor pra ver se vai dar merda antes de rodar o componente.
+        this.nomeDoInterceptor = axios.interceptors.request.use(req => {
             this.setState({error: null});
             return req;
-        })
-        axios.interceptors.response.use(res => res, error => {
+        }) 
+        this.nomeDoResponseInterceptor = axios.interceptors.response.use(res => res, error => {
                 this.setState({error: error})
         });
     }
+    componentWillUnmount () {
+        axios.interceptors.request.eject(this.nomeDoInterceptor);
+        axios.interceptors.response.eject(this.nomeDoResponseInterceptor);
+    } // pra retirar o interceptor. prestar atenção no lifecycle hook dele.
 
     errorConfirmedHandler = () => {
         this.setState({error: null})
