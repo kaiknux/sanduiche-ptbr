@@ -4,7 +4,7 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
-  background-image: url('../src/assets/Images/46952635055_6c83f11ee4_c.jpg');
+  background-color: gray;
   background-repeat: no-repeat;
   background-size: 100%;
 }

@@ -113,11 +113,11 @@
 }
 
 .BatataPalha {
-  width: 95%;
-  height: 9%;
+  width: 90%;
+  height: 6%;
   margin: 2% auto;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAeUlEQVQoU42Quw2AMAxEn0sKStgKNsh02QC2gpKCMsgGJwGEhJv8ns93EX6WPLgBmKq7EZj1XIMGpT1mTpqge4MdLNBmj2e1EYcdTKa0BaSHtJBXhwu4fKfS5htoaglYgQ5Eivrd4zXStd2CBnqnrizohGdqF/n8xwMdCi2iqEqS6QAAAABJRU5ErkJggg==);  
-  border-radius: 5px;
+  background: linear-gradient(#b18700, #9ce902);
+  border-radius: 20px;
 }
 
 .Seeds3 {
