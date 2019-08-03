@@ -12,7 +12,7 @@ return (
     <Auxiliary>
         <h3>Seu pedido:</h3>
         <p>Um delicioso hambúrger com os ingredientes:</p>
-        <p>{ingredientSummary}</p>
+        <ul>{ingredientSummary}</ul>
         <p><strong>Preço: {props.price}</strong></p>
         <p>Seguir para o check-out?</p>
         <Button btnType="Danger" clicked={props.purchaseCancelled}>Cancelar</Button>

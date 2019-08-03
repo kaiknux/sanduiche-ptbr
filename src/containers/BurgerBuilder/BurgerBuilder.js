@@ -13,7 +13,7 @@ const INGREDIENT_PRICES = {
     bacon: 1.0,
     meat: 1.5,
     batatapalha: 0.35,
-    purchasing: false
+    
 };
 
 class BurgerBuilder extends Component {
@@ -26,10 +26,13 @@ class BurgerBuilder extends Component {
             batatapalha: 0,
         },
         totalPrice: 4,
-        purchasabale: false
-
+        purchasabale: false,
+        purchasing: false
     };
 
+    componentDidMount () {
+        console.log(this.state);
+        }
     purchaseContinuedHandler = () => {
         alert('Continue!');
     }
@@ -42,7 +45,7 @@ class BurgerBuilder extends Component {
         this.setState({purchasing: true})
     }
 
-    updatePurchaseState (ingredients) {
+    updatePurchaseState = (ingredients) => {
 
         const sum = Object.keys(ingredients)
         .map(igKey => {
