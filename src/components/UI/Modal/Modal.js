@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
 import classes from '../Modal/Modal.css';
-import Auxiliary from '../../../hoc/Auxiliary';
+import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
 class Modal extends Component {
 
+
+    //Poderia ser um functional component, só loquei como class pra ter o controle do lifecycle hooks
+    //pra ver quando ele renderiza ou não com esses shouldComponentUpdate e o componentWillUpdate
+    
     shouldComponentUpdate ( nextProps, nextState ) {
         return nextProps.show !== this.props.show;
     }
