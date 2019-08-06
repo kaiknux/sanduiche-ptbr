@@ -4,6 +4,7 @@ import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
 
 class ContactData extends Component {
+
     state = {
         nome: '',
         email: '',
@@ -12,6 +13,11 @@ class ContactData extends Component {
             cep: '',
         }
     }
+
+    orderHandler = () => {
+        console.log(this.props.ingredients);
+    }
+
     render () {
         return (
             <div className={classes.ContactData}>
