@@ -30,13 +30,14 @@ class Orders extends Component {
     render () {
         return (
             <div>
+                                BANCO DE DADOS: Google Firebase
+
                 {this.state.orders.map(order => (
                     <Order 
                         key={order.id}
                         ingredients={order.ingredients}
                         price={order.price} />
                 ))}
-                <div>oie</div>
             </div>
         );
     }
