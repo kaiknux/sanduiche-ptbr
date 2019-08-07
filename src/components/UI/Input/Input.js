@@ -3,7 +3,7 @@ import classes from './Input.css';
 
 const input = (props) => {
     let inputElement = null;
-    switch (props.inputtype) {
+    switch (props.elementType) {
             //lembrar que className no html não é case sensitive, então fazer inputType virar inputtype em switch case
         case ('input'):
             inputElement = <input className={classes.InputElement} {...props.elementConfig} value={props.value}/>;
@@ -16,7 +16,7 @@ const input = (props) => {
                 <select 
                     className={classes.InputElement} 
                     value={props.value} 
-                    {props.elementConfig.options.map(option => <option key={option.value} value={option.value}>{option.displayValue}</option>)}>
+                    {...props.elementConfig.options.map(option => <option key={option.value} value={option.value}>{option.displayValue}</option>)}>
                 </select> )
         break;
         default:

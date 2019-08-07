@@ -18,7 +18,6 @@ class ContactData extends Component {
                 },
                 value: '',
             },
-            endereco: {
                 rua: {
                     elementType: 'input',
                     elementConfig: {
@@ -42,13 +41,12 @@ class ContactData extends Component {
                         placeholder: 'País',
                     },
                     value: '',
-                }
-            },
+                },
             email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Rua, número e complemento',
+                    placeholder: 'Seu e-mail',
                 },
                 value: '',
             },
@@ -87,10 +85,12 @@ class ContactData extends Component {
             console.log(error);
     });
     }
-
+    componentDidMount () {
+        console.log(this.state)
+    }
     render () {
         const formElementsArray = [];
-        for (let key in this.orderForm) {
+        for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
                 config: this.state.orderForm[key]
