@@ -17,6 +17,9 @@ class ContactData extends Component {
                     placeholder: 'Seu nome',
                 },
                 value: '',
+                validation: {
+                    required: true,
+                },
             },
                 rua: {
                     elementType: 'input',
@@ -25,6 +28,9 @@ class ContactData extends Component {
                         placeholder: 'Rua, número e complemento',
                     },
                     value: '',
+                    validation: {
+                        required: true,
+                    },
                 },
                 cep: {
                     elementType: 'input',
@@ -33,6 +39,9 @@ class ContactData extends Component {
                         placeholder: 'CEP',
                     },
                     value: '',
+                    validation: {
+                        required: true,
+                    },
                 },
                 pais: {
                     elementType: 'input',
@@ -41,12 +50,18 @@ class ContactData extends Component {
                         placeholder: 'País',
                     },
                     value: '',
+                    validation: {
+                        required: true,
+                    },
                 },
             email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
                     placeholder: 'Seu e-mail',
+                    validation: {
+                        required: true,
+                    },
                 },
                 value: '',
             },
@@ -69,11 +84,17 @@ class ContactData extends Component {
         event.preventDefault(); // evine que envie uma request e reloade a pagina
         console.log(this.props.ingredients);
         console.log('acima foi props dentro do orderHandler')
-                this.setState({loading: true});
-                // alert('Continue!');
+        this.setState({loading: true});
+        // alert('Continue!');
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm ) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        }
         const order = {
             ingredients: this.props.ingredients,
-            price: this.props.price }
+            price: this.props.price,
+            cliente: formData
+        }
         axios.post( '/orders.json' , order )
         .then(response => {
             this.setState({loading: false});
@@ -85,9 +106,28 @@ class ContactData extends Component {
             console.log(error);
     });
     }
-    componentDidMount () {
-        console.log(this.state)
+
+    inputChangedHandler = (event, inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        };
+        const updatedFormElement = { 
+            ...updatedOrderForm[inputIdentifier]
+        };
+        updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        this.setState({orderForm: updatedOrderForm});
     }
+
+    checkValidity(value, rules) {
+        let isValid = false;
+        if (rules.required) {
+            isValid = value.trim() !== '';
+        }
+        return isValid
+    }
+
     render () {
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
@@ -97,15 +137,16 @@ class ContactData extends Component {
             });
         }
         let form = (
-                <form>
+                <form onSubmit={this.orderHandler}>
                     {formElementsArray.map(formElement => (
                         <Input  key={formElement.id}
                                 elementType={formElement.config.elementType}
                                 elementConfig={formElement.config.elementConfig}
                                 value={formElement.config.value}
+                                changed={(event) => this.inputChangedHandler(event, formElement.id)}
                                 />
                     ))}
-                    <Button btnType='Success' clicked={this.orderHandler}>Pedir</Button>
+                    <Button btnType='Success'>Pedir</Button>
                 </form>
         );
         if (this.state.loading) {
