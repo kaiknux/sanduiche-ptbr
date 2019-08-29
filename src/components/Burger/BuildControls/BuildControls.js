@@ -8,7 +8,7 @@ const controls = [
     {label: 'Bacon', type: 'bacon'},
     {label: 'Queijo muçarela', type: 'cheese'},
     {label: 'Carne 120g', type: 'meat'},
-    {label: 'Batata-Palha', type: 'batatapalha'},
+    {label: 'Tomate', type: 'tomate'},
 
 
 ];

@@ -112,11 +112,11 @@
     margin: 2% auto;
 }
 
-.BatataPalha {
-  width: 90%;
+.Tomate {
+  width: 65%;
   height: 6%;
   margin: 2% auto;
-  background: linear-gradient(#b18700, #9ce902);
+  background: linear-gradient(#b18700, #ff2e2e);
   border-radius: 20px;
 }
 
