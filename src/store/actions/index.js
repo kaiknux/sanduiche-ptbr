@@ -3,4 +3,5 @@ removeIngredient,
 initIngredients
 } from './burgerBuilder';
 
-export {} from './order';
+export { purchaseInit,
+purchaseBurger } from './order';
